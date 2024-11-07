@@ -18,11 +18,16 @@ import FAQPage from '../components/FAQPage.jsx'
 import InsightsSection from '../components/Insights.jsx'
 import SubscribeSection from '../components/SubscribeSection.jsx'
 import AchievementsSection from '../components/Achievements.jsx'
+import { useContext } from 'react';
+import MyContext from '../context/ContextApi.jsx';
 
-// Icons for Faculty Areas
 const facultyIcons = ["🎓", "🔬", "🖥️", "📊", "🎨", "🏛️", "⚖️", "📚"];
 
 const HomePage = () => {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at Home page", siteData);
+
   return (
     <Container maxWidth="lg">
       {/* Hero Section */}
@@ -40,8 +45,9 @@ const HomePage = () => {
       Empowering Minds, Shaping Futures.
     </Typography>
     <Typography variant="body1" sx={{ mb: 4 }}>
-      Learn from the best and achieve academic excellence by exploring a range of world-class
-      resources and facilities.
+    
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab magni vitae ipsam sit dignissimos assumenda officia architecto veniam amet labore, laboriosam atque quis quas.
+      {/* {siteData?.heroContent} */}
     </Typography>
     <Button
       variant="contained"

@@ -2,8 +2,13 @@ import React from 'react'
 import InsightsSection from '../components/Insights'
 import StayUpToDate from '../components/StayUpToDate'
 import HeroSection from '../components/HeroSection'
+import { useContext } from 'react';
+import MyContext from '../context/ContextApi';
 
 function Blog() {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at Blog", siteData);
   return (
     <>
       <HeroSection

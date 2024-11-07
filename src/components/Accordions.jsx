@@ -5,7 +5,7 @@ import { Box } from '@mui/material';
 
 const EducationBenefits = () => {
   const accordionStyles = {
-    border: '2px dotted #d3d3d3', // Dotted border style
+    border: '2px dotted #d3d3d3', 
     borderRadius: '8px',
     marginBottom: '16px',
     padding: '8px',
@@ -93,7 +93,7 @@ const EducationBenefits = () => {
         <Box
           sx={{
             flex: '1 1 100%',
-            maxWidth: { md: '48%' }, // For larger screens, take up 48% width
+            maxWidth: { md: '48%' }, 
           }}
         >
           <Accordion sx={accordionStyles}>

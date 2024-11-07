@@ -2,8 +2,13 @@ import { Box, Typography, Card, CardMedia, TextField, Button, Divider, InputAdor
 import { AccessTime, Comment, School, Search } from '@mui/icons-material';
 import HeroSection from '../components/HeroSection';
 import StayUpToDate from '../components/StayUpToDate';
+import { useContext } from 'react';
+import MyContext from '../context/ContextApi.jsx';
 
 function SingleBlog() {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at Single Blog", siteData);
   return (
     <>
       {/* Hero Section */}
@@ -82,7 +87,7 @@ function SingleBlog() {
             p={2}
             borderRadius="10px"
             sx={{
-              backgroundImage: 'url(https://your-image-url.com)',  // Add the actual URL of the background image here
+              backgroundImage: 'url(https://images.pexels.com/photos/8422173/pexels-photo-8422173.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=252&fit=crop&h=408)',  
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               color: 'white'

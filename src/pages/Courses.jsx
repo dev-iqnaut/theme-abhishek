@@ -1,11 +1,17 @@
 import HeroSection from '../components/HeroSection.jsx'
 import OptimizeYourLearning from '../components/optimizeLearning.jsx';
 import SubscribeSection from '../components/SubscribeSection.jsx'
+import { useContext } from 'react';
+import MyContext from '../context/ContextApi.jsx';
 
 
 import React from 'react'
 
 function Courses() {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at Courses", siteData);
+
   return (
     <>
        <HeroSection

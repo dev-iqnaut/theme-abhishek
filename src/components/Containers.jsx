@@ -1,29 +1,44 @@
 import { Box, Typography, Container, Paper } from '@mui/material';
 import { styled } from '@mui/system';
+import { useEffect, useState } from 'react';
+import { getSiteData } from '../firebase/fetchFirebase';
 
-// Styling for the dotted bordered containers
+
 const DottedContainer = styled(Paper)(({ theme }) => ({
   border: '2px dotted #E91E63',
   padding: theme.spacing(4),
   borderRadius: '12px',
   boxShadow: 'none',
   flex: '1 1 45%',
-  minWidth: '280px', // Adjusted to accommodate small screens
+  minWidth: '280px', 
   [theme.breakpoints.down('sm')]: {
-    minWidth: '100%', // Full width on smaller screens
-    padding: theme.spacing(3), // Reduced padding on small screens
+    minWidth: '100%', 
+    padding: theme.spacing(3), 
   },
 }));
 
 export default function VisionMissionSection() {
+
+  const [siteData, setSiteData] = useState({});
+
+  useEffect(()=>{
+    const fetchdata=async()=>{
+      const data= await getSiteData()
+      setSiteData(data.siteData)
+      console.log(data);
+    }
+    fetchdata()
+    console.log("from Component",siteData);
+    
+},[])
   return (
     <Box
       sx={{
         backgroundImage:
-          'url(https://images.pexels.com/photos/1164572/pexels-photo-1164572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)', // Fixed URL and corrected typo
+          'url(https://images.pexels.com/photos/1164572/pexels-photo-1164572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)', 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        py: { xs: 6, md: 8 }, // Less padding for smaller screens
+        py: { xs: 6, md: 8 },
         position: 'relative',
         color: '#fff',
         textAlign: 'center',
@@ -34,7 +49,7 @@ export default function VisionMissionSection() {
         component="h2"
         sx={{
           mb: 4,
-          fontSize: { xs: '1.8rem', md: '2.5rem' }, // Responsive font size
+          fontSize: { xs: '1.8rem', md: '2.5rem' }, 
         }}
       >
         Our Vision & Mission
@@ -45,10 +60,10 @@ export default function VisionMissionSection() {
         <Box
           sx={{
             display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' }, // Stack on small screens, row on larger screens
-            justifyContent: 'space-around', // Space between the containers
-            alignItems: 'center', // Align vertically in the center
-            gap: 4, // Gap between the containers
+            flexDirection: { xs: 'column', md: 'row' },
+            justifyContent: 'space-around', 
+            alignItems: 'center', 
+            gap: 4, 
           }}
         >
           {/* Vision Section */}
@@ -65,8 +80,10 @@ export default function VisionMissionSection() {
               variant="body1"
               sx={{ fontSize: { xs: '0.9rem', md: '1rem' } }} // Responsive body text
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
-              libero. Sed cursus ante dapibus diam.
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
+              libero. Sed cursus ante dapibus diam.  */}
+              { siteData?.aboutUs?.vision}
+              
             </Typography>
           </DottedContainer>
 
@@ -84,8 +101,9 @@ export default function VisionMissionSection() {
               variant="body1"
               sx={{ fontSize: { xs: '0.9rem', md: '1rem' } }} // Responsive body text
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
-              libero. Sed cursus ante dapibus diam.
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
+              libero. Sed cursus ante dapibus diam. */}
+               { siteData?.aboutUs?.mission}
             </Typography>
           </DottedContainer>
         </Box>

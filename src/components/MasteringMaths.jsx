@@ -129,7 +129,7 @@ const MasteringMathematics = () => {
         {/* Newsletter Box with Background Image */}
         <Box
           sx={{
-            backgroundImage: 'url(https://media.istockphoto.com/id/1351416161/photo/female-teachers-teaching-students-in-library-at-school.jpg?s=1024x1024&w=is&k=20&c=66NH30EsyJFQrt10Yx640cYwaDRwNXO80FuQQzmhFSw=)', // Replace with your actual image URL
+            backgroundImage: 'url(https://media.istockphoto.com/id/1351416161/photo/female-teachers-teaching-students-in-library-at-school.jpg?s=1024x1024&w=is&k=20&c=66NH30EsyJFQrt10Yx640cYwaDRwNXO80FuQQzmhFSw=)', 
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             height: '20%',

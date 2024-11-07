@@ -8,6 +8,8 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import PaletteIcon from '@mui/icons-material/Palette';
 import ComputerIcon from '@mui/icons-material/Computer';
+import { useEffect, useState } from 'react';
+import { getSiteData } from '../firebase/fetchFirebase';
 
 // Styled dotted container with dynamic border color
 const DottedContainer = styled(Paper)(({ borderColor }) => ({
@@ -35,6 +37,21 @@ const IconWrapper = styled(Box)(({ iconColor }) => ({
 }));
 
 export default function PopularFacultyAreas() {
+
+  const [siteData, setSiteData] = useState({});
+
+  useEffect(()=>{
+    const fetchdata=async()=>{
+      const data= await getSiteData()
+      setSiteData(data.siteData)
+      console.log(data);
+    }
+    fetchdata()
+    console.log("from Component",siteData);
+    
+},[])
+
+
   const faculties = [
     { name: 'Engineering', icon: <SchoolIcon />, iconColor: '#FF5722', borderColor: '#FF9800' },
     { name: 'Business Studies', icon: <BusinessIcon />, iconColor: '#673AB7', borderColor: '#9C27B0' },
@@ -74,6 +91,8 @@ export default function PopularFacultyAreas() {
             </Typography>
             <Typography variant="body2" mb={2}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet accumsan lorem.
+
+              {/* { siteData?.PopularFacultyAreaofStudy.Engineering} */}
             </Typography>
             <Button
               variant="contained"
@@ -82,7 +101,7 @@ export default function PopularFacultyAreas() {
                 color: '#fff',
                 '&:hover': {
                   backgroundColor: '#ff6699',
-                  transform: 'scale(1.05)', // Scale effect on hover
+                  transform: 'scale(1.05)', 
                 },
               }}
             >

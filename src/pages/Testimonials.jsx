@@ -1,9 +1,14 @@
 import React from 'react'
 import HeroSection from '../components/HeroSection.jsx'
 import Testimonial from '../components/AboutBridge.jsx'
+import { useContext } from 'react';
+import MyContext from '../context/ContextApi.jsx';
 
 
 function Testimonials() {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at Testimonials", siteData);
   return (
    <>
     <HeroSection

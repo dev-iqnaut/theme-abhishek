@@ -1,10 +1,12 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { Box, TextField, Button, Typography, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
 
 // Custom styles for dotted border
 const DottedBox = styled(Box)(({ theme }) => ({
@@ -42,6 +44,20 @@ const center = {
 };
 
 const ContactModule = () => {
+
+  const [siteData, setSiteData] = useState({});
+
+  useEffect(()=>{
+    const fetchdata=async()=>{
+      const data= await getSiteData()
+      setSiteData(data.siteData)
+      console.log(data);
+    }
+    fetchdata()
+    console.log("from Component",siteData);
+    
+},[])
+
   return (
     <Box sx={{ padding: { xs: '1rem', md: '2rem' }, height: '100%' }}>
       {/* Main container using flex layout */}

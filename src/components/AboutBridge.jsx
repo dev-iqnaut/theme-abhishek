@@ -62,9 +62,9 @@ const Testimonial = () => {
               borderColor: getRandomColor(),
               borderRadius: '8px',
               padding: '1.5rem',
-              width: { xs: '100%', sm: '45%', md: '30%' },  // Responsive width
+              width: { xs: '100%', sm: '45%', md: '30%' }, 
               textAlign: 'center',
-              margin: { xs: '0.5rem', sm: '1rem' },         // Add margin for mobile/tablet
+              margin: { xs: '0.5rem', sm: '1rem' },        
             }}
           >
             <Avatar 

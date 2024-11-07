@@ -1,8 +1,14 @@
 import React from 'react'
 import HeroSection from '../components/HeroSection.jsx'
 import MasteringMathematics from '../components/MasteringMaths.jsx'
+import { useContext } from 'react';
+import MyContext from '../context/ContextApi.jsx';
 
 function CourseDetail() {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at Course Detail", siteData);
+ 
   return (
     <>
     <HeroSection

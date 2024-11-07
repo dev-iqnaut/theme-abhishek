@@ -1,8 +1,14 @@
 import React from 'react'
 import ContactModule from '../components/ContactModule.jsx'
 import HeroSection from '../components/HeroSection.jsx'
+import { useContext} from 'react';
+import MyContext from '../context/ContextApi.jsx';
 
 function ContactUs() {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at Contact Us", siteData);
+
   return (
     <>
      <HeroSection

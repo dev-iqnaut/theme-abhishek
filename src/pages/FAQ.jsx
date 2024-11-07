@@ -2,7 +2,14 @@ import React from 'react'
 import HeroSection from '../components/HeroSection.jsx'
 import FAQPage from '../components/FAQPage.jsx'
 import EducationBenefits from '../components/Accordions.jsx'
+import { useContext } from 'react';
+import MyContext from '../context/ContextApi.jsx';
+
 function FAQ() {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at FAQ", siteData);
+
   return (
     <>
     <HeroSection

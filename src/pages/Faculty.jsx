@@ -3,9 +3,14 @@ import HeroSection from '../components/HeroSection.jsx'
 import EducationalExperience from '../components/EdExperience.jsx';
 import FAQPage from '../components/FAQPage.jsx'
 import PopularFacultyAreas from '../components/Faculty.jsx';
+import { useContext } from 'react';
+import MyContext from '../context/ContextApi.jsx';
 
 
 function Faculty() {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at Faculty", siteData);
   return (
     <>
     <HeroSection

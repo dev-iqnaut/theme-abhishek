@@ -3,9 +3,15 @@ import HeroSection from '../components/HeroSection.jsx'
 import OurExpertLecturer from '../components/Lecturer.jsx'
 import StudentTestimonial from '../components/StudentSays.jsx'
 import FAQPage from '../components/FAQPage.jsx'
+import { useContext } from 'react';
+import MyContext from '../context/ContextApi.jsx';
 
 
 function Professional() {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at Professional", siteData);
+
   return (
     <>
     <HeroSection

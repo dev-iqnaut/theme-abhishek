@@ -1,9 +1,15 @@
 import React from 'react'
 import HeroSection from '../components/HeroSection.jsx'
 import EducationalExperience from '../components/EdExperience.jsx';
-import EdProfessionals from '../components/EdProfessionals.jsx'
+import EdProfessionals from '../components/EdProfessionals.jsx';
+import { useContext } from 'react';
+import MyContext from '../context/ContextApi.jsx';
 
 function Career() {
+
+  const { siteData } = useContext(MyContext);
+  console.log("Data at Career", siteData);
+
   return (
     <>
      <HeroSection
